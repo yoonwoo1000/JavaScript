@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>변수의 타입</title>
+    </head>
+    <body>
+        <script>
+            // JS의 변수 타입 확인하기
+            let variable;
+            // variable 변수의 타입을 '문자열'로 출력해주세요
+            console.log(typeof(variable));
+            // undefined 상태인 변수를 호출하면 '상태'가 출력됩니다
+            console.log(variable);
+            // 정수 타입 / 실수 타입 -> number 숫자 타입
+            variable = 1;
+            console.log(typeof(variable));
+            variable = 3.14;
+            console.log(typeof(variable));
+            // 문자, 문자열 -> string 문자열 타입
+            variable = 'a';
+            console.log(typeof(variable));
+            variable = "a";
+            console.log(typeof(variable));
+            variable = "hello, JS!! hi. ezen!!";
+            console.log(typeof(variable));
+            // boolean
+            variable = true;
+            console.log(typeof(variable));
+            variable = false;
+            console.log(typeof(variable));
+            // null : null은 상태 / 타입 object 
+            variable = null;
+            console.log(variable);
+            console.log(typeof(variable));
+            // number 타입이 갖는 상태
+            console.log("number--------------");
+            variable = 10 / 0 ;            // 무한대
+            console.log(variable);          // Infinity 상태
+            console.log(typeof(variable));  // 무한대도 number 타입
+            // isFinite(number타입변수) : 유한한 수를 갖고 있습니까?
+            console.log(isFinite(variable)) // fasle -> 무한한 수임
+            variable = 10;  // 유한수를 넣었을때
+            console.log(isFinite(variable)) // true -> 유한한 수임
+            console.log("NaN--------------");
+            variable = 0 / 0 ;            // NaN
+            console.log(variable);
+            console.log(typeof(variable));
+            // NaN은 값이 아님 : 상태
+            // 비교 연산자 == : 값을 비교
+            console.log(Number.NaN == 0/0);
+            // NaN은 값이 아니므로 비교할수 없음
+            // isNaN(변수) : 변수의 상태가 NaN인가요?
+            console.log(isNaN(variable));
+        </script>
+    </body>
+</html>

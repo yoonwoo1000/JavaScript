@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>자바스크립트 변수</title>
+    </head>
+    <body>
+        <script>
+            // 변수 선언
+            var x;
+            // 변수 선언과 초기화
+            var y = 10;
+            // 초기화 하지 않은 변수의 상태 : undefined
+            console.log(x); // 자바에서는 초기화하지 않으면 오류 발생
+            console.log(y);
+            // JS의 변수는, 온갖 타입의 데이터를 넣을수 있습니다
+            x = 'a';        console.log(x);
+            x = 3.14;       console.log(x);
+            x = 10;         console.log(x+1);
+            console.log(x+"a");
+            console.log(x+"1");
+            console.log(x-"1");
+            x = "ezen";     console.log(x);
+            // 선언하지 않은 변수의 호출은 허용하지 않습니다
+            console.log(z);
+            console.log("end of file");
+            // JS var로 선언된 변수는 실행하기 전에 제일 처음으로 이동시킴
+            var z = 100;        // 호이스팅
+            var z = "EZNE";     // 재선언
+            // let 선언 키워드
+            // console.log(i);  // 호이스팅 하지 않음
+            // 선언하기 전에 불러오는 코드를 허용하지 않습니다
+            let i = 10; //  let은 재선언 불가
+            // const 선언 키워드 : 상수를 선언
+            const pi = 3.141592653589793;
+            console.log(pi);
+            // 상수 : 값을 변경할 수 없는 변수
+            // const로 선언되는 상수는 값을 변경할 수 없으므로
+            // 선언시 반드시 초기화를 해야 합니다
+        </script>
+    </body>
+</html>

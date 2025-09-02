@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JS의 연산자</title>
+    </head>
+    <body>
+        <script>
+            let x = 10;
+            let y = 3;
+            let z;
+            // 산술 연산자
+            z = x + y;  console.log("더하기 : " + z);
+            z = x - y;  console.log("빼기 : "   + z);
+            z = x * y;  console.log("곱하기 : " + z);
+            z = x / y;  console.log("나누기 : " + z); // 실수 결과
+            z = x % y;  console.log("나머지 : " + z);
+            z = x / 0;  console.log("0으로 나눔 : " + z);
+            z = 0 / 0;  console.log("0을 0으로 나눔 : " + z);
+            // 대입연산자, 복합연산자
+            // 변수 = 값 : 값을 변수에 대입하세요
+            x = x + 10 ;        console.log(x);
+            x += 10 ;           console.log(x);
+            x += 1;             console.log(x);
+            x++;                console.log(x);
+            x = x - 10;
+            x -= 10;
+            x -= 1;
+            x--;
+            // 비교연산자
+            // A < B / A > B / A == B / A != B / A === B 
+            x = 1;
+            y = 2;
+            console.log( "x < y : " + ( x < y ) );
+            console.log( "x > y : " + ( x > y ) );
+            console.log( "x <= y : " + ( x <= y ) );
+            console.log( "x >= y : " + ( x >= y ) );
+            console.log( "x == y : " + ( x == y ) );
+            console.log( "x != y : " + ( x != y ) );
+            y = '1';
+            console.log( "x == y : " + ( x == y ) );
+            console.log( "x === y : " + ( x === y ) );
+            // 논리 연산자 && || !
+            x = true;
+            y = false;
+            console.log( x && y ); // false
+            console.log( x || y ); // true
+            console.log( !x ); // false
+            console.log( !y ); // true
+            // 비트연산자 & | >> <<
+            console.log( x & y ); // 1 and 0 -> 0
+            console.log( x | y ); // 1 or 0  -> 1
+            console.log( 5 & 3 ); // 0101 and 0011 -> 0001 -> 1
+            console.log( 5 | 3 ); // 0101 or 0011  -> 0111 -> 7
+            console.log( 4 >> 2 ); // 0100 -> 0001 -> 1
+            console.log( 2 << 2 ); // 0010 -> 1000 -> 8
+        </script>
+    </body>
+</html>
