@@ -31,29 +31,29 @@
             // A < B / A > B / A == B / A != B / A === B 
             x = 1;
             y = 2;
-            console.log( "x < y : " + ( x < y ) );
-            console.log( "x > y : " + ( x > y ) );
+            console.log( "x < y : "  + ( x < y )  );
+            console.log( "x > y : "  + ( x > y )  );
             console.log( "x <= y : " + ( x <= y ) );
             console.log( "x >= y : " + ( x >= y ) );
             console.log( "x == y : " + ( x == y ) );
             console.log( "x != y : " + ( x != y ) );
             y = '1';
-            console.log( "x == y : " + ( x == y ) );
+            console.log( "x == y : "  + ( x ==  y ) );
             console.log( "x === y : " + ( x === y ) );
             // 논리 연산자 && || !
             x = true;
             y = false;
             console.log( x && y ); // false
             console.log( x || y ); // true
-            console.log( !x ); // false
-            console.log( !y ); // true
+            console.log( !x );     // false
+            console.log( !y );     // true
             // 비트연산자 & | >> <<
-            console.log( x & y ); // 1 and 0 -> 0
-            console.log( x | y ); // 1 or 0  -> 1
-            console.log( 5 & 3 ); // 0101 and 0011 -> 0001 -> 1
-            console.log( 5 | 3 ); // 0101 or 0011  -> 0111 -> 7
-            console.log( 4 >> 2 ); // 0100 -> 0001 -> 1
-            console.log( 2 << 2 ); // 0010 -> 1000 -> 8
+            console.log( x & y );  // 0001 and 0000 -> 0
+            console.log( x | y );  // 0001 or  0000 -> 1
+            console.log( 5 & 3 );  // 0101 and 0011 -> 0001 -> 1
+            console.log( 5 | 3 );  // 0101 or  0011 -> 0111 -> 7
+            console.log( 4 >> 2 ); // 0100 ->  0001 -> 1
+            console.log( 2 << 2 ); // 0010 ->  1000 -> 8
         </script>
     </body>
 </html>

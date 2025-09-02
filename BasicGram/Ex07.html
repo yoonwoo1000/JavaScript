@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>특정 구구단 출력하기</title>
+    </head>
+    <body>
+        <script>
+            let result;
+            // parseInt(문자열) -> 문자열을 읽어 정수로 변환
+            result = parseInt("123");    // 정수로 이루어진 문자열
+            console.log(result, typeof(result));
+            result = parseInt("123.45"); // 실수로 이루어진 문자열
+            console.log(result, typeof(result));
+            result = parseInt("123a");   // 정수 뒤에 문자가 있을때
+            console.log(result, typeof(result));
+            result = parseInt("abc");    // 숫자가 아닌 문자열
+            console.log(result, typeof(result));
+            result = parseInt("abc123"); // 문자열뒤에 숫자
+            console.log(result, typeof(result));
+            // parseFloat(문자열) -> 문자열을 읽어 실수로 변환
+            result = parseFloat("123.45"); // 실수로 이루어진 문자열
+            console.log(result, typeof(result));
+            // alert("");
+            // prompt() 함수로 입력받은 데이터는 '문자열' 타입입니다
+            let userInput = prompt("출력할 구구단 단수를 입력하세요", 2);
+            let i = 2;
+            if ( userInput == null ){ // 취소를 눌렀을때
+                console.log("입력된 단수가 없습니다");
+                console.log("2단을 출력하겠습니다");
+            }else{ // 입력된 문자열은 있음
+                result = parseInt(userInput); // 정수로 변환
+                if( isNaN(result) ){ // 숫자가 아닌 문자열에 대해서 체크
+                    alert("숫자만 입력해주세요");
+                }else{ // 정수로 잘 변환되어 i에 대입
+                    console.log(result, typeof(result));
+                    i = result;
+                }
+            }
+            /*  변수 선언과 초기화
+                while(반복을계속할 조건) {
+                    수행할 내용
+                    변수의 값을 변경
+                }   */
+            if( i < 2 || i > 9 ){
+                alert("숫자 범위는 2부터 9까지 입력해 주세요");
+            }else {
+                let j = 1;
+                while( j < 10 ) {
+                    console.log( i + " * " + j + " = " + ( i * j ) );
+                    j++;
+                }
+            }
+        </script>
+    </body>
+</html>

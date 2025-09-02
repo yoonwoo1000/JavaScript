@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>특정 구구단 출력하기</title>
+    </head>
+    <body>
+        <script>
+            let userInput = prompt("출력할 구구단 단수를 입력하세요", 2);
+            if ( userInput == null ){ // 취소를 눌렀을때
+                alert("입력된 단수가 없습니다");
+            }else{ // 입력된 데이터 있음
+                let result = parseInt(userInput); // 정수로 변환
+                if( isNaN(result) ){ // 숫자가 아닌 문자열 입력 함
+                    alert("숫자만 입력해주세요");
+                }else{ // 정수로 잘 변환 되었음
+                    if( result < 2 || result > 9 ){ // 유효 범위 확인
+                        alert("숫자 범위는 2부터 9까지 입력해 주세요");
+                    }else { // 구구단 출력
+                        let j = 1;
+                        while( j < 10 ) {
+                            console.log(result + " * " + j + " = " + (result * j));
+                            j++;
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

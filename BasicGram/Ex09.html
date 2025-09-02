@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let i = 2; let j = 1;; let str = "";
+
+        while (i < 10) {
+            document.writeln('<table border="1" width="300px"');
+            j = 1;
+            while (j < 10) {
+                str = "<tr><td>" + i + "</td><td>x</td><td>"
+                str += j +  "</td><td>=</td><td>" + (i*j) + "</td></tr>";
+                document.writeln(str);
+                j++;
+            }
+            document.writeln('</table>');
+            document.writeln('<hr>');
+            i++;
+        }
+    </script>
+
+   
+</body>
+
+</html>

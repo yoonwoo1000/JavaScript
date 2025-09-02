@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>3항 연산자 / 조건문</title>
+    </head>
+    <body>
+        <script>
+            alert("메세지");
+            // 3항 연산자
+            // (논리식) ? 값A : 값B ;
+            // 논리식이 true이면 값A를 남기고, false이면 값B를 남김
+            let result = ''; 
+            result = ( 1 < 2 ) ? "참" : "거짓";   console.log(result);
+            result = ( 1 < 2 ) ? 100 : -100;      console.log(result);
+            let score = 70;
+            result = ( score >= 90 ) ? "참잘했어요" : "잘했어요";
+            console.log(result);
+            //(score >= 80 ) ? "잘했어요" : "분발하세요";
+            result = ( score >= 90 ) ? "참잘했어요" : ( score >= 80 ) ? "잘했어요" : "분발하세요";
+            console.log(result);
+
+            // if else로 구현하기 
+            if ( score >= 90 ){
+                result = "참잘했어요";
+            }else if ( score >= 80 ) {
+                result = "잘했어요";
+            }else {
+                result = "분발하세요";
+            }
+            console.log(result);
+            // scroe 76 -> score % 10 : 6 -> 76 - 6 => 70
+            score = 79;
+            score = score - (score % 10);
+            let str = "";
+            switch(score) {
+                case 100 :  // 100
+                    str = "정말 잘했어요";  break;
+                case 90 :   // 90~99
+                    str = "참 잘했어요";    break;
+                case 80 :   // 80~89
+                    str = "잘했어요";       break;
+                default :   // 79 ~
+                    str = "분발하세요";
+            }
+            console.log(str);
+
+            // 사용자에게 알림을 하는 함수
+            alert("메세지");
+            
+            // 사용자에게서 입력을 받는 함수 : 취소 -> null
+            // prompt("메세지","기본값")
+            result = prompt("이름을 입력하세요","아무개");
+            console.log(result);
+
+            // 사용자에게 의사 결정을 물어봄 : t/f
+            result = confirm("진행할까요?");
+            console.log(result);
+        </script>
+    </body>
+</html>
