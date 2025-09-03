@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function myFun() {
+            console.log("myFun()");
+        }
+        myFun();
+
+        function funA(x) {
+            console.log(x)
+        }
+
+        funA(10);
+        funA();
+        myFun(10);
+
+        function funB(x, y) {
+            return (x + y);
+        }
+
+        let result = funB(10, 3);
+        console.log(result);
+       
+        function funB(x, y) {
+            return (x - y);
+        }
+
+        result = funB(10, 3);
+        console.log(result);
+
+
+        function funC(){
+            console.log("funC()");
+        }
+
+        funC();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function myFun() {
+            console.log("myFun()");
+        }
+
+        myFun();
+
+        var x = 100;
+        let y = 30;
+
+        function add(i, j) {
+            console.log(x, y);
+            return (i + j);
+        }
+
+        add(10, 3);
+
+        add(x, y);
+
+        function sub(x, y) {
+            console.log(x, y);
+            return (x - y);
+        }
+
+        sub(10, 3);
+        console.log(x, y);
+
+        function div(x, y) {
+            console.log(x, y);
+            console.log(window.x);
+            return (x / y);
+        }
+        div(22, 4);
+        console.log(x, y);
+
+        function mul(x, y, globalY) {
+            console.log(x, y);
+            console.log(globalY);
+            return (x * y);
+        }
+        mul(1, 4, y);
+
+
+        let result = 0;
+        result = add(1234, 5678);
+        console.log("add = " + result);
+        result = sub(1234, 5678);
+        console.log("sub = " + result);
+        result = mul(3, 4, y);
+        console.log("mul = " + result);
+        result = div(4, 2);
+        console.log("div = " + result);
+
+    </script>
+</body>
+
+</html>

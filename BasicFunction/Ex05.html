@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function gugu(dan) {
+            for (let i = 1; i < 10; i++) {
+                console.log(dan + " * " + i + " = " + dan * i);
+            }
+        }
+        function guguAll() {
+            for (let i = 2; i < 10; i++) {
+                gugu(i);
+            }
+        }
+
+        let dan = prompt("give me dan");
+
+        parseInt(dan);
+
+    </script>
+
+    <input type="button" value="2dan" onclick="gugu(2)"><br>
+    <input type="button" value="3dan" onclick="gugu(3)"><br>
+    <input type="button" value="All gugu" onclick="guguAll()"><br>
+
+</body>
+
+</html>

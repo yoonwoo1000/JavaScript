@@ -1,0 +1,46 @@
+function add(i, j) { return i + j; }
+function sub(i, j) { return i - j; }
+function mul(i, j) { return i * j; }
+function div(i, j) { return i / j; }
+function DoCal() {
+
+    let x = prompt("number x = ");
+    let op = prompt("operator = [+-*/]");
+    let y = prompt("number y = ");
+
+    x = parseInt(x);
+    console.log("x = " + x);
+
+    y = parseInt(y);
+    console.log("y = " + y);
+
+    let result = 0;
+
+    if ((!isNaN(x)) && (!isNaN(y))) {
+        switch (op) {
+            case "+":
+                result = add(x, y)
+                break;
+            case "-":
+                result = sub(x, y)
+                break;
+            case "*":
+                result = mul(x, y)
+                break;
+            case "/":
+                result = div(x, y)
+                break;
+            default:
+                console.log("not operator");
+                result = "Error"
+                break;
+        }
+        if (result != "Error") {
+            console.log("result = " + result);
+        }
+
+    } else {
+        console.log("xx = " + x + " yy = " + y);
+    }
+    alert("result = " + result);
+}
