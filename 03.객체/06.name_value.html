@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>name 속성과, value 속성</title>
+        <style>
+            input:focus {
+                background-color: aqua;
+                outline-color: orange;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                // name 속성으로 객체 찾기
+                let obj = document.getElementsByName("numA")
+                console.log(obj)
+                // name 속성은 form의 input 객체에 작성해야 하는
+                // 준 필수 속성입니다
+                // document에게 name속성값.name속성값
+                // document.form의name값.하위input의name값
+                obj = document.simpleCal.numA
+                console.log(obj)
+                // document에는 form들을 원소로 갖는 forms 컬렉션이 존재
+                obj = document.forms['simpleCal'].numA
+                console.log(obj)
+                obj.focus() // 해당 객체로 커서 이동
+            }
+
+            function DoCal(){
+                //alert("DoCal이 호출되었습니다")
+                // numA의 입력값을 꺼내기 위해 객체를 찾음
+                let numA_obj = document.simpleCal.numA
+                // 입력 객체에 입력되어있는 값(value)을 가져욤
+                let numA = numA_obj.value
+                console.log("numA 입력값 : ",numA,typeof(numA))
+                // numB의 입력값...
+                let numB_obj = document.simpleCal.numB
+                let numB = numB_obj.value
+                console.log("numB 입력값 : ",numB,typeof(numB))
+                // OP의 선택값...
+                let OP_obj = document.simpleCal.op
+                let op = OP_obj.value
+                console.log("연산자 선택값 : ",op,typeof(op))
+                // 입력값의 유효성 체크
+                // numA, numB -> 정수인가?
+                // 공백문자가 앞뒤로 있는가?
+                numA = numA.trim()
+                numB = numB.trim()
+                console.log(numA, numA.length)
+                // 문자열을 치환하는 함수
+                // replace는 첫번째 문자열만 치환
+                // numA = numA.replace(",","")
+                // console.log(numA)
+                // str.replaceAll(문자열,문자열) / 모든 문자열을 치환
+                // 숫자의 자릿수 표시를 제거
+                numA = numA.replaceAll(",","")
+                numB = numB.replaceAll(",","")
+                console.log(numA,numB)
+                // 정수로 변환
+                numA = parseInt(numA)
+                numB = parseInt(numB)
+                if(isNaN(numA)){ // numA 입력칸에 숫자가 아닌 정보가 입력되어있음
+                    alert("정수를 입력해주세요")
+                    numA_obj.value = "" // 입력된 값을 삭제
+                    numA_obj.focus()    // 입력할수 있도록 커서 이동
+                    return              // DoCal() 함수를 종료
+                }
+                if(isNaN(numB)){ // numB 입력칸에 숫자가 아닌 정보가 입력되어있음
+                    alert("정수를 입력해주세요")
+                    numB_obj.value = ""
+                    numB_obj.focus()
+                    return
+                }
+                let result = 0
+                switch(op){
+                    case "+" :
+                        result = numA + numB; break;
+                    case "-" :
+                        result = numA - numB; break;
+                    case "*" :
+                        result = numA * numB; break;
+                    case "/" :
+                        result = numA / numB; break;
+                }
+                //number.toLocaleString() 자릿수 구분자를 넣은 문자열을 반환
+                document.simpleCal.result.value = result.toLocaleString()
+            }
+        </script>
+    </head>
+    <body>
+        <form action="/" method="get" name="simpleCal">
+            <input type="text" name="numA" value="">
+            <select name="op">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" name="numB">
+            <input type="button" value="=" onclick="DoCal()">
+            <input type="text" name="result">
+        </form>
+    </body>
+</html>

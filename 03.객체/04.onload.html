@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>on load 이벤트</title>
+        <script>
+            // window : 브라우저의 창 객체
+            // 문서를 모두 로드하면(on load) 익명함수를 실행하세요
+            window.onload = function() {
+                console.log("1번 함수")
+            }
+            window.onload = function() {
+                console.log("2번 함수")
+            }
+            // window.onload = function() {...}는 마지막 작성된 내용만 반영 
+            window.onload = function() { // 익명함수
+                // onload가 아닐때 : 객체를 찾는 시점-> p태그 객체 없음
+                // 문서 로드 후 -> p태그 객체 모두 생성되어 있음
+                let results = document.getElementsByTagName("p")
+                console.log("찾은 객체 컬렉션 :", results)
+                console.log("찾은 객체의 개수 :", results.length)
+                console.log('-------------------------')
+                for( let i = 0; i < results.length; i++ ){
+                    console.log(i)  // 0,1,2, ... ,원소개수-1
+                    console.log(results[i]) // i를 인덱스로 활용
+                }
+                console.log('-------------------------')
+                for (let object of results ){ // java의 향상된 for문에 해당
+                    console.log(object) // DOM 객체들을 찾을때에는 of를 쓰는게 좋음
+                }
+                console.log('-------------------------')
+                for (let index in results ){
+                    // results는 찾은 객체만 가지고 있는 컬렉션이 아님
+                    console.log(index, results[index])
+                }
+                console.log('-------------------------')
+                // Array 자바스크립트의 배열
+                let arry = [ "a", "Java", 1 , "python"]
+                console.log(typeof(arry),"-------------")
+                console.log(arry,"-------------")
+                for( let i = 0; i < arry.length; i++ ){
+                    console.log(arry[i])
+                }
+                console.log("-------------")
+                for( let object of arry ){
+                    console.log(object)
+                }
+                console.log("-------------")
+                for( let index in arry ){
+                    console.log(arry[index])
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p>여기는 문단1 입니다</p>
+        <p>여기는 문단2 입니다</p>
+        <p name="myName">여기는 문단3 입니다</p>
+        <p class="myClass">여기는 문단4 입니다</p>
+        <p id="myID">여기는 문단5 입니다</p>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>하위 객체</title>
+    </head>
+    <body>
+        <div id="myDiv">
+            문자열
+            <span class="subSpan">
+                span의 영역
+            </span>
+        </div>
+        <div id="yourDiv">
+            <span class="subSpan">
+                span 영역
+            </span>
+            문자열
+        </div>
+        <script>
+            // 객체 찾기
+            let object = document.getElementById("myDiv")
+            console.log(object)
+            // 객체의 하위 객체 중 '문자열' 내용을 가져오세요
+            console.log(object.innerText)
+            // 객체의 하위 객체 전부를 '문자열'로 (html태그 포함)
+            console.log(object.innerHTML)
+            // 객체의 하위 객체를 문자열로 변경
+            object.innerText = "자바스크립트에서 입력한 문자열입니다"
+            object.innerText += "<span>자바스크립트에서 입력한 문자열입니다</span>"
+            // 객체의 하위 객체를 html 객체로
+            object.innerHTML = "자바스크립트에서 입력한 문자열입니다"
+            object.innerHTML += "<span style='color:red;'>자바스크립트에서 입력한 문자열입니다</span>"
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        let count = 1
+        function showMSG(str){
+            let obj = document.getElementsByClassName("MSGBOX")[0]
+            obj.innerText = str
+        }
+
+    </script>
+
+    <style>
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        div.Out{
+            width: 150px;
+            height: 150px;
+        }
+        div.In{
+            width: 70px;
+            height: 70px;
+        }
+    </style>
+
+</head>
+<body>
+    <span class="MSGBOX"></span>
+    <hr>
+    <div class="Out" style="background-color: greenyellow;" onmouseenter="showMSG('enter')" onmouseleave="showMSG('leave')">
+        
+        <div class="In" style="background-color: blue;" 
+        onmouseover="showMSG('over')" 
+        onmouseout="showMSG('out')"></div>
+    </div>
+
+    <div class="Out" style="background-color: magenta;">
+        <div class="In" style="background-color: pink;"></div>
+    </div>
+
+
+</body>
+</html>

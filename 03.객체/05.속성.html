@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>속성값 변경하기</title>
+        <script>
+            window.onload = function(){
+                // p 태그 객체를 찾으세요
+                let object_p = document.getElementsByTagName("p")[0]
+                // span 태그 객체를 찾으세요
+                let object_span = document.getElementsByTagName("span")[0]
+                console.log("찾은 p 객체", object_p)
+                console.log("찾은 span 객체", object_span)
+                console.log('------------------------------')
+                console.log("p객체의 속성값들")
+                console.log("class Name :", object_p.className)
+                console.log("lang :", object_p.lang)
+                console.log("css style :", object_p.style)
+                // p 태그 객체(element)에게 style 속성 값을 물어봄
+                // p 객체는 style 속성값 작성되지 않았음
+                console.log("css style background-color :", object_p.style.backgroundColor)
+                console.log("css style font-size :", object_p.style.fontSize)
+                // 화면에 출력되는 '계산된' CSS style은 window에게 물어봐야 합니다
+                console.log('------------------------------')
+                let cssMap = window.getComputedStyle(object_p)
+                console.log("window에게 물어본 p태그 객체의 계산된 스타일 값")
+                console.log(cssMap.color)
+                console.log(cssMap.backgroundColor)
+                console.log(cssMap.fontSize)
+                console.log('------------------------------')
+                console.log("span객체의 속성값들")
+                console.log("class Name :", object_span.className)
+                console.log("lang :", object_span.lang)
+                console.log("css style :", object_span.style)
+                console.log("css style background-color :", object_span.style.backgroundColor)
+                console.log("css style font-size :", object_span.style.fontSize)
+                console.log('------------------------------')
+                cssMap = window.getComputedStyle(object_span)
+                console.log("window에게 물어본 span태그 객체의 계산된 스타일 값")
+                console.log(cssMap.color)
+                console.log(cssMap.backgroundColor)
+                console.log(cssMap.fontSize)
+                console.log('------------------------------')
+            }
+            function change() {
+                // span 태그 객체의 스타일 속성 변경
+                let object = document.getElementsByClassName("bigFont")[0]
+                console.log(object)
+                object.style.color = "green"
+                object.style.backgroundColor = "beige"
+                object.style.fontSize = "36px"
+                object.style.fontFamily ="궁서"
+                // span 태그 객체의 innerText 속성값 변경
+                object.innerText = "도큐먼트 오브젝트 모델"
+            }
+            function reset() {
+                let object = document.getElementsByClassName("bigFont")[0]
+                // 속성 값을 제거하고 싶을때에는 ""(빈문자열) 대입
+                object.style.color = ""
+                object.style.backgroundColor = ""
+                object.style.fontSize = "24px"
+                object.style.fontFamily =""
+                object.innerText = "DOM Element"
+            }
+            function change(object) {
+                object.style.color = "green"
+                object.style.backgroundColor = "beige"
+                object.style.fontSize = "36px"
+                object.style.fontFamily ="궁서"
+            }
+            function reset(object) {
+                object.style.color = ""
+                object.style.backgroundColor = ""
+                object.style.fontSize = ""
+                object.style.fontFamily =""
+            }
+            function DoChange(){
+                let object = document.getElementsByClassName("bigFont")[0]
+                change(object)
+            }
+            function DoReset(){
+                let object = document.getElementsByClassName("bigFont")[0]
+                reset(object)
+            }
+            function DoChange(target){
+                let object = document.getElementsByClassName(target)[0]
+                change(object)
+            }
+            function DoReset(target){
+                let object = document.getElementsByClassName(target)[0]
+                reset(object)
+            }
+        </script>
+        <style>
+            p { background-color: pink; }
+            span.bigFont { font-size: 24px; }
+        </style>
+    </head>
+    <body>
+        <p class="msgBox" lang="ko" style="font-size:12px">
+            문단 영역입니다<br>
+            <span class="langList">HTML, CSS, JS</span> 수업입니다.<br>
+            <span class="bigFont" lang="en">DOM Element</span>
+            의 속성을 가져오고, 변경하고 있습니다
+            <span class="className">이젠 it 아카데미 AI 서비스 개발자 양성과정</span>
+        </p>
+        <button type="button" onclick="DoChange('bigFont')">bigFont 스타일 변경</button>
+        <button type="button" onclick="DoReset('bigFont')">bigFont 스타일 리셋</button>
+        <hr>
+        <button type="button" onclick="DoChange('langList')">langList 스타일 변경</button>
+        <button type="button" onclick="DoReset('langList')">langList 스타일 리셋</button>
+        <hr>
+        <button type="button" onclick="DoChange('className')">className 스타일 변경</button>
+        <button type="button" onclick="DoReset('className')">className 스타일 리셋</button>
+    </body>
+</html>
+

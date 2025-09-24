@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>make, move, remove Object</title>
+
+    <style>
+        div {
+            height: 100px;
+            border: 2px solid rgb(59, 43, 206);
+            margin: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            console.log("load document")
+            let object = document.getElementById("myDiv")
+            console.log(object)
+            console.log(myDiv)
+            myDiv.innerHTML = "<p style='color:red;'>New Object</p>"
+
+            let newObject = document.createElement("p")
+            newObject.style.color = "blue"
+            newObject.style.backgroundColor = "pink"
+            newObject.innerText = "used createElement() object"
+
+            myDiv.appendChild(newObject)
+
+            console.log(newObject)
+
+            let tmp = myDiv.removeChild(newObject)
+            console.log(tmp)
+            yourDiv.appendChild(tmp)
+//            tmp.remove()
+            console.log(tmp)
+        }
+    </script>
+
+</head>
+<body>
+    <div id="myDiv" style="background-color: aqua;"></div>
+    <hr>
+    <div id="yourDiv" style="background-color: greenyellow;"></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>속성값 변경하기</title>
+        <script>
+            function change(object) {
+                object.style.color = "green"
+                object.style.backgroundColor = "beige"
+                object.style.fontSize = "36px"
+                object.style.fontFamily ="궁서"
+            }
+            function reset(object) {
+                object.style.color = ""
+                object.style.backgroundColor = ""
+                object.style.fontSize = ""
+                object.style.fontFamily =""
+            }
+            function DoChange(target){
+                let object = document.getElementsByClassName(target)[0]
+                change(object)
+            }
+            function DoReset(target){
+                let object = document.getElementsByClassName(target)[0]
+                reset(object)
+            }
+        </script>
+        <style>
+            p { background-color: pink; }
+            span.bigFont { font-size: 24px; }
+        </style>
+    </head>
+    <body>
+        <p class="msgBox" lang="ko" style="font-size:12px">
+            문단 영역입니다<br>
+            <span class="langList">HTML, CSS, JS</span> 수업입니다.<br>
+            <span class="bigFont" lang="en">DOM Element</span>
+            의 속성을 가져오고, 변경하고 있습니다
+            <span class="className">이젠 it 아카데미 AI 서비스 개발자 양성과정</span>
+        </p>
+        <button type="button" onclick="DoChange('bigFont')">bigFont 스타일 변경</button>
+        <button type="button" onclick="DoReset('bigFont')">bigFont 스타일 리셋</button>
+        <hr>
+        <button type="button" onclick="DoChange('langList')">langList 스타일 변경</button>
+        <button type="button" onclick="DoReset('langList')">langList 스타일 리셋</button>
+        <hr>
+        <button type="button" onclick="DoChange('className')">className 스타일 변경</button>
+        <button type="button" onclick="DoReset('className')">className 스타일 리셋</button>
+    </body>
+</html>
+

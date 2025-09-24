@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function showMSG(str){
+            let obj = document.getElementsByClassName("MSGBOX")[0]
+            obj.innerText = str
+        }
+
+        function keyCheck(object){
+            showMSG('input event' + event.key)
+
+            if(event.key == "Enter"){showMSG("Enter")}
+            if(event.key == " "){showMSG("Space")}
+            if(event.key == "Control"){showMSG("control")}
+        }
+    </script>
+
+</head>
+<body>
+    <input type="text" onkeydown="keyCheck(event)" onfocus="showMSG('Cursor in')" onblur="showMSG('cursor out')">
+    <input type="text" onkeyup="keyCheck(event)">
+    <input type="text" onkeypress="keyCheck(event)">
+    <br>
+    <span class="MSGBOX"></span>
+</body>
+</html>

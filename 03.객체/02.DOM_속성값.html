@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM 객체 검색 후 속성 값 조회 하기</title>
+    </head>
+    <body>
+        <div class="first" id="a11"> div 영역 </div>
+        <div class="seconds" id="b22" name="myDiv"
+             style="color: red; background-color:yellow;">
+            <span>하위 공간 분할 영역 span</span>
+        </div>
+        <script>
+            let result = document.getElementById("b22")
+            console.log(result)
+            // 객체를 찾았으면, 객체의 정보(속성값)을 호출(조회)
+            console.log(result.id)  // id 속성값
+            // class 속성값 : class는 js 예약어
+            console.log(result.className)
+            // name 속성값???
+            // name은 div의 정규 속성 이름이 아님
+            console.log(result.name)    // name 키워드로 name 속성값을 못가져옴
+            // 찾은 객체의 css style
+            console.log(result.style)
+            // color 속성
+            console.log(result.style.color)
+            // background-color 속성
+            console.log(result.style.backgroundColor)
+            // 객체의 속성값을 호출할 수 있으면, 변경은??
+            result.id = "myDiv-001"
+            result.className = "myClass-001"
+            result.style.color = "pink"
+            result.style.backgroundColor = "skyblue"
+            // 바뀐 속성값 확인하기
+            console.log(result.id)
+            console.log(result.className)
+            console.log(result.style.color)
+            console.log(result.style.backgroundColor)
+            // 속성 이름으로 속성의 값 가져오기
+            console.log(result.getAttribute("name"))
+            // 속성 이름으로 속성의 값 변경하기
+            result.setAttribute("name","EZEN-001")
+            // 변경확인
+            console.log(result.getAttribute("name"))
+        </script>
+    </body>
+</html>

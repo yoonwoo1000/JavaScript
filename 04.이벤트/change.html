@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+          function showMSG(str){
+            let obj = document.getElementsByClassName("MSGBOX")[0]
+            obj.innerHTML += str + "<br>"
+        }
+        function checkEvent(object){
+            console.log("event occur object", object)
+            console.log("object value", object.value)
+            console.log("check is checked", object.checked)
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" onchange="showMSG('input value is chaged')">
+    <hr>
+    <label><input type="radio" name="cat1" value="01" onchange="checkEvent(this)">1</label>
+    <label><input type="radio" name="cat1" value="02" onchange="checkEvent(this)">2</label>
+    <label><input type="radio" name="cat1" value="03" onchange="checkEvent(this)">3</label>
+    <hr>
+    <label><input type="checkbox" name="cat2" value="A" onchange="checkEvent(this)">A</label>
+    <label><input type="checkbox" name="cat2" value="B" onchange="checkEvent(this)">B</label>
+    <label><input type="checkbox" name="cat2" value="C" onchange="checkEvent(this)">C</label>
+    <hr>
+    <span class="MSGBOX"></span>
+</body>
+</html>

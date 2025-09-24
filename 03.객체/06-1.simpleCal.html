@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>name 속성과, value 속성</title>
+        <style>
+            input:focus {
+                background-color: aqua;
+                outline-color: orange;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                let = document.simpleCal.numA
+                obj.focus()
+            }
+            function DoCal(){
+                let numA = document.simpleCal.numA.value
+                let numB = document.simpleCal.numB.value
+                let op = document.simpleCal.op.value
+                numA = parseInt(numA.trim().replaceAll(",",""))
+                numB = parseInt(numB.trim().replaceAll(",",""))
+                if(isNaN(numA)){
+                    alert("정수를 입력해주세요")
+                    document.simpleCal.numA.value = ""
+                    document.simpleCal.numA.focus()
+                    return
+                }
+                if(isNaN(numB)){
+                    alert("정수를 입력해주세요")
+                    document.simpleCal.numB.value = ""
+                    document.simpleCal.numB.focus()
+                    return
+                }
+                let result = 0
+                switch(op){
+                    case "+" : result = numA + numB; break;
+                    case "-" : result = numA - numB; break;
+                    case "*" : result = numA * numB; break;
+                    case "/" : result = numA / numB; break;
+                }
+                document.simpleCal.result.value = result.toLocaleString()
+            }
+        </script>
+    </head>
+    <body>
+        <form action="/" method="get" name="simpleCal">
+            <input type="text" name="numA" value="">
+            <select name="op">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" name="numB">
+            <input type="button" value="=" onclick="DoCal()">
+            <input type="text" name="result">
+        </form>
+    </body>
+</html>

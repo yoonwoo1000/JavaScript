@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM의 객체 사용하기</title>
+        <script>
+            // html객체 -> DOM 객체가 생성되기 전에 찾을수 없습니다
+            let result = document.getElementsByTagName("div")
+            console.log(result, result.length)
+            if( result.length  > 0){
+                console.log("div 태그 객체를 찾았습니다")
+            }else{
+                console.log("div 태그 객체를 찾지 못했습니다")
+            }
+            function main() {
+                let result = document.getElementsByTagName("div")
+                console.log(result,result.length)
+                result = document.getElementsByTagName("a")
+                console.log(result,result.length)
+                result = document.getElementsByClassName("second")
+                console.log(result,result.length)
+                result = document.getElementById("b22")
+                console.log(result)
+                result = document.getElementsByName("uname")
+                console.log(result,result.length)
+            }
+        </script>
+    </head>
+    <body>
+        <div class="first" id="a11">이곳은 공간분할 태그 div의 영역입니다</div>
+        <div class="second" id="b22">그곳은 공간분할 태그 div의 영역입니다</div>
+        <div class="third" id="c33">저곳은 공간분할 태그 div의 영역입니다</div>
+        <span id="b22" name="myName">공간분할 span 태그입니다</span>
+        <form action="" method="get">
+            <input type="text" name="uname" id="b22">
+            <input type="text" name="uage">
+            <input type="text" name="ulevel">
+        </form>
+        <script>
+            main()
+        </script>
+    </body>
+</html>

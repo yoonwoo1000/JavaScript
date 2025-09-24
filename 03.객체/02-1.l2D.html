@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>라이트모드 다크모드 전환하기</title>
+        <script>
+            function light(){
+                object = document.getElementById("box")
+                object.style.color = "black"
+                object.style.backgroundColor = "white"
+            }
+            function dark(){
+                object = document.getElementById("box")
+                object.style.color = "white"
+                object.style.backgroundColor = "black"
+            }
+        </script>
+    </head>
+    <body id="box">
+        <div style="width: 100%; text-align:right">
+            <button type="button" onclick="light()">라이트</button>
+            <button type="button" onclick="dark()">다크</button>
+        </div>
+        <h3>제목입니다</h3>
+        <hr>
+        <p>본문 태그입니다</p>
+        <div>공간분할 태그입니다</div>
+        <span>span 태그 영역입니다</span>
+        <br>
+        <p>이젠 it 아카데미 AI 서비스 개발자 양성과정</p>
+    </body>
+</html>

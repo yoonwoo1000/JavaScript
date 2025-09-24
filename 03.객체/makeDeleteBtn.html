@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>make and remove button</title>
+    <style>
+        exBox{background-color: greenyellow;}
+    </style>
+
+    <script>
+        let count = 1
+        function MakeBTN(object){
+            let parent = object.parentElement
+            let newBTN = document.createElement("button")
+
+            newBTN.innerText = "button[" + (count++) + "]" 
+            newBTN.setAttribute("onclick","delBTN(this)")
+
+            parent.appendChild(newBTN)
+            parent.appendChild(document.createElement("br"))
+    }
+        function delBTN(object){
+            console.log(object)
+            object.nextElementSibling.remove()
+            object.remove()
+        }
+
+
+    </script>
+
+    
+</head>
+<body>
+    <div class="exBox">
+        <button type="button" onclick="MakeBTN(this)">
+            make button
+        </button>
+        <br>
+    </div>
+</body>
+</html>

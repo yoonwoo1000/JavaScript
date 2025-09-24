@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>간단한 공룡 달리기 게임 (초급 개발자 교육용)</title>
+  <style>
+    /* CSS 스타일 정의 */
+    body {
+      margin: 0; /* body 요소의 기본 margin 제거 */
+      overflow: hidden; /* 화면 밖으로 나가는 요소 숨김 */
+      background-color: #f0f0f0; /* body 배경색 설정 */
+      display: flex; /* flexbox 레이아웃 사용 */
+      justify-content: center; /* 가로 방향 가운데 정렬 */
+      align-items: center; /* 세로 방향 가운데 정렬 */
+      min-height: 100vh; /* 최소 높이를 화면 높이로 설정 */
+    }
+    #gameCanvas {
+      border: 1px solid #000; /* 캔버스 테두리 설정 */
+      background-color: #fff; /* 캔버스 배경색 설정 */
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+
+  <script>
+    // JavaScript 코드 시작
+
+    // 1. 캔버스 요소와 2D 렌더링 컨텍스트 가져오기
+    const canvas = document.getElementById('gameCanvas'); // HTML에서 id가 'gameCanvas'인 요소 가져오기
+    const ctx = canvas.getContext('2d'); // 2D 그래픽을 그릴 수 있는 컨텍스트 객체 가져오기
+
+    // 2. 캔버스 크기 설정
+    const canvasWidth = 600; // 캔버스의 가로 크기
+    const canvasHeight = 150; // 캔버스의 세로 크기
+    canvas.width = canvasWidth; // 캔버스 HTML 요소의 width 속성 설정
+    canvas.height = canvasHeight; // 캔버스 HTML 요소의 height 속성 설정
+
+    // 3. 공룡 관련 속성 정의
+    const dinoWidth = 20; // 공룡의 가로 크기
+    const dinoHeight = 30; // 공룡의 세로 크기
+    let dinoX = 50; // 공룡의 초기 x 좌표 (왼쪽에서 50px 떨어진 위치)
+    let dinoY = canvasHeight - dinoHeight; // 공룡의 초기 y 좌표 (캔버스 바닥에 위치)
+    let dinoVelocityY = 0; // 공룡의 수직 속도 (처음에는 0)
+    const gravity = 1; // 중력 값 (아래로 당기는 힘)
+    let isJumping = false; // 현재 점프 중인지 여부를 나타내는 불리언 변수 (처음에는 false)
+
+    // 4. 선인장 관련 속성 정의
+    const cactusWidth = 15; // 선인장의 가로 크기
+    const cactusHeight = 30; // 선인장의 세로 크기
+    let cactusX = canvasWidth; // 선인장의 초기 x 좌표 (캔버스 오른쪽 끝)
+    const cactusSpeed = 3; // 선인장의 이동 속도 (왼쪽으로 이동)
+
+    // 5. 게임 점수
+    let score = 0; // 초기 점수는 0
+    let gameInterval; // 게임 루프를 관리하는 변수
+
+    // 6. 공룡 그리기 함수
+    function drawDino() {
+      ctx.fillStyle = 'green'; // 채우기 색상을 초록색으로 설정
+      ctx.fillRect(dinoX, dinoY, dinoWidth, dinoHeight); // 지정된 위치와 크기로 채워진 사각형 그리기 (공룡)
+    }
+
+    // 7. 선인장 그리기 함수
+    function drawCactus() {
+      ctx.fillStyle = 'red'; // 채우기 색상을 빨간색으로 설정
+      ctx.fillRect(cactusX, canvasHeight - cactusHeight, cactusWidth, cactusHeight); // 지정된 위치와 크기로 채워진 사각형 그리기 (선인장)
+    }
+
+    // 8. 점수 표시 함수
+    function drawScore() {
+      ctx.fillStyle = 'black'; // 글자 색상을 검은색으로 설정
+      ctx.font = '16px Arial'; // 글꼴 스타일과 크기 설정
+      ctx.fillText('Score: ' + score, 10, 20); // 캔버스 (10, 20) 위치에 점수 텍스트 그리기
+    }
+
+    // 9. 공룡 상태 업데이트 함수 (점프, 중력 적용)
+    function updateDino() {
+      dinoY += dinoVelocityY; // 현재 수직 속도만큼 공룡의 y 좌표를 변경 (위 또는 아래로 이동)
+      dinoVelocityY += gravity; // 중력을 적용하여 수직 속도 증가 (아래로 점점 빠르게)
+
+      // 공룡이 바닥에 닿았을 때
+      if (dinoY > canvasHeight - dinoHeight) {
+        dinoY = canvasHeight - dinoHeight; // 공룡의 y 좌표를 바닥 위치로 고정
+        dinoVelocityY = 0; // 수직 속도를 0으로 초기화 (더 이상 아래로 이동하지 않음)
+        isJumping = false; // 점프 상태를 false로 변경
+      }
+    }
+
+    // 10. 선인장 상태 업데이트 함수 (이동, 재생성)
+    function updateCactus() {
+      cactusX -= cactusSpeed; // 선인장의 x 좌표를 감소시켜 왼쪽으로 이동
+
+      // 선인장이 화면 왼쪽 끝으로 사라졌을 때
+      if (cactusX < -cactusWidth) {
+        cactusX = canvasWidth + Math.random() * 200; // 새로운 x 좌표를 캔버스 오른쪽 끝 + 랜덤한 거리로 설정 (다양한 간격 생성)
+        score++; // 점수 증가
+      }
+    }
+
+    // 11. 충돌 검사 함수
+    function checkCollision() {
+      // 공룡의 x 범위와 선인장의 x 범위가 겹치고
+      // 공룡의 y 범위와 선인장의 y 범위가 겹치면 충돌 발생
+      if (
+        dinoX < cactusX + cactusWidth && // 공룡의 왼쪽 끝이 선인장의 오른쪽 끝보다 왼쪽에 있고
+        dinoX + dinoWidth > cactusX && // 공룡의 오른쪽 끝이 선인장의 왼쪽 끝보다 오른쪽에 있고
+        dinoY < canvasHeight - cactusHeight + cactusHeight && // 공룡의 위쪽 끝이 선인장의 아래쪽 끝보다 위에 있고 (캔버스 바닥 기준 y좌표 사용)
+        dinoY + dinoHeight > canvasHeight - cactusHeight // 공룡의 아래쪽 끝이 선인장의 위쪽 끝보다 아래에 있으면
+      ) {
+        // 충돌 발생! 게임 종료 처리
+        clearInterval(gameInterval); // 게임 루프 중단
+        ctx.fillStyle = 'black'; // 글자 색상 설정
+        ctx.font = '24px Arial'; // 글꼴 스타일 및 크기 설정
+        ctx.fillText('Game Over!', canvasWidth / 2 - 80, canvasHeight / 2 - 10); // "Game Over!" 메시지를 화면 중앙에 표시
+      }
+    }
+
+    // 12. 게임 루프 함수 (매 프레임마다 실행)
+    function gameLoop() {
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight); // 이전 프레임에 그려진 내용 지우기
+      drawDino(); // 공룡 그리기
+      drawCactus(); // 선인장 그리기
+      drawScore(); // 점수 표시
+      updateDino(); // 공룡 상태 업데이트
+      updateCactus(); // 선인장 상태 업데이트
+      checkCollision(); // 충돌 검사
+    }
+
+    // 13. 점프 함수 (스페이스바를 눌렀을 때 호출)
+    function jump() {
+      // 현재 점프 중이 아니면 점프 시작
+      if (!isJumping) {
+        dinoVelocityY = -15; // 위로 향하는 초기 속도 설정 (음수 값)
+        isJumping = true; // 점프 상태를 true로 변경
+      }
+    }
+
+    // 14. 키보드 이벤트 리스너 (스페이스바 감지)
+    document.addEventListener('keydown', function(event) {
+      if (event.code === 'Space') { // 눌린 키가 스페이스바인지 확인
+        jump(); // 점프 함수 호출
+      }
+    });
+
+    // 15. 게임 시작 (일정 시간 간격으로 gameLoop 함수 실행)
+    gameInterval = setInterval(gameLoop, 20); // 20밀리초마다 gameLoop 함수 실행 (초당 50 프레임)
+
+    // JavaScript 코드 종료
+  </script>
+</body>
+</html>

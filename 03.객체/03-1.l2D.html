@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>라이트모드 다크모드 전환하기</title>
+        <script>
+            function toggle(){
+                console.log("toggle 함수가 호출되었습니다")
+                btn = document.getElementById("toggleBtn")
+                object = document.getElementById("box")
+                if(btn.innerText == "다크"){ // 다크 모드로 전환
+                    console.log("다크 모드로 변경합니다")
+                    object.style.color = "white"
+                    object.style.backgroundColor = "black"
+                    btn.innerText = "라이트"
+                }else{ // 라이트 모드로 전환
+                    console.log("라이트 모드로 변경합니다")
+                    object.style.color = "black"
+                    object.style.backgroundColor = "white"
+                    btn.innerText = "다크"
+                }
+            }
+        </script>
+    </head>
+    <body id="box">
+        <div style="width: 100%; text-align:right">
+            <button type="button" onclick="toggle()" id="toggleBtn">
+                다크
+            </button>
+        </div>
+        <h3>제목입니다</h3>
+        <hr>
+        <p>본문 태그입니다</p>
+        <div>공간분할 태그입니다</div>
+        <span>span 태그 영역입니다</span>
+        <br>
+        <p>이젠 it 아카데미 AI 서비스 개발자 양성과정</p>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>find parent</title>
+
+    <script>
+        function nameCheck(){
+            console.log("Clicked", myBtn)
+
+            let obj = myBtn.parentElement
+            console.log(obj)
+            console.log(obj.children)
+
+            obj = myBtn.parentNode
+            console.log(obj)
+
+            console.log(obj.childNodes)
+
+            console.log(obj.firstElementChild)
+            console.log(obj.lastElementChild)
+
+            console.log(obj.firstChild)
+            console.log(obj.lastChild)
+
+            console.log(obj.previousElementSibling)
+            console.log(obj.nextElementSibling)
+            console.log(obj.previousSibling)
+            console.log(obj.nextSibling)
+            
+        }
+
+        function CheckValue(object){
+            console.log(object)
+            console.log(object.previousElementSibling.value)
+            console.log(object.parentElement.firstElementChild.value)
+        }
+
+         function tellCheck(){
+            console.log("Clicked", myBtn)
+
+            let obj = myBtn.parentElement
+            console.log(obj)
+       
+        }
+    </script>
+
+</head>
+<body>
+    <div>
+        name : 
+        <input type="text" name="uName" id="">
+        <button type="button" onclick="CheckValue(this)" id="myBtn">Check name</button> <br>
+        <span>span</span>
+    </div>
+
+    <div>
+        tell number : 
+        <input type="text" name="telNum" id="">
+        <button type="button" onclick="CheckValue(this)" id="yourBtn">tell number checker</button>
+    </div>
+</body>
+</html>

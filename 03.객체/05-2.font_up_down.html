@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>폰트 크기 변경</title>
+        <script>
+            function Up(){ 
+                // id 속성이 부여된 객체는 id로 직접 접근이 가능합니다
+                // 글자 크기 속성에서 숫자만 가져오기
+                let size = parseInt(msgBox.style.fontSize)
+                msgBox.style.fontSize = size + 10 + "px"
+            }
+            function Down(){
+                let size = parseInt(msgBox.style.fontSize)
+                msgBox.style.fontSize = size - 10 + "px"
+            }
+            function AddChar(char) {
+                msgBox.innerText += char
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="Up()">⏫</button>
+        <button type="button" onclick="Down()">⏬</button>
+        <p id="msgBox" style="font-size: 16px;">가나다라마바사</p>
+        <button type="button" onclick="AddChar(7)">7️⃣</button>
+        <button type="button" onclick="AddChar(8)">8️</button>
+        <button type="button" onclick="AddChar(9)">9️</button><br>
+        <button type="button" onclick="AddChar(4)">4️</button>
+        <button type="button" onclick="AddChar(5)">5️</button>
+        <button type="button" onclick="AddChar(6)">6️</button><br>
+        <button type="button" onclick="AddChar(1)">1️</button>
+        <button type="button" onclick="AddChar(2)">2️</button>
+        <button type="button" onclick="AddChar(3)">3️</button><br>
+        <button type="button" onclick="AddChar(0)">0️</button>
+        <button type="button" onclick="AddChar('-')">➖</button>
+    </body>
+</html>

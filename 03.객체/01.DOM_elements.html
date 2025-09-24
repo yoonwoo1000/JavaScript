@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM의 객체 사용하기</title>
+    </head>
+    <body>
+        <!-- 교재 350페이지부터  -->
+        <!-- 브라우저는 HTML 태그의 내용을 분석해서
+            document라는 객체를 만들고 이 문서 객체의 하위 요소로
+            html 태그의 요소들을 배치합니다
+            -> 객체 object 
+
+            문서 객체 모델(The Document Object Model, 이하 DOM) 은 HTML, XML 문서의 프로그래밍 interface 이다.
+            DOM은 문서의 구조화된 표현(structured representation)을 제공하며 프로그래밍 언어가 DOM 구조에 접근할 수 있는 방법을 제공하여 그들이 문서 구조, 스타일, 내용 등을 변경할 수 있게 돕는다.
+            DOM 은 nodes와 objects로 문서를 표현한다.
+            이들은 웹 페이지를 스크립트 또는 프로그래밍 언어들에서 사용될 수 있게 연결시켜주는 역할을 담당한다
+        -->
+        <div class="first" id="a11">이곳은 공간분할 태그 div의 영역입니다</div>
+        <div class="seconds" id="b22">그곳은 공간분할 태그 div의 영역입니다</div>
+        <div class="third" id="c33">저곳은 공간분할 태그 div의 영역입니다</div>
+        <span id="b22">공간분할 span 태그입니다</span>
+        <script>
+            // DOM 객체를 태그 이름으로 찾기
+            // document에게 '태그 이름이 div인 객체가 있나요?'
+            let result = document.getElementsByTagName("div")
+            // getElements -> 여러 객체를 담을수 있는 collection 객체를 반환
+            console.log(result) // 컬렉션 객체
+            console.log(result[0]) // div가 하나-> 인덱스0으로 접근
+            console.log("찾은 div태그 객체의 개수 : ",result.length)
+            result = document.getElementsByTagName("a")
+            console.log(result == null)
+            console.log(result == undefined)
+            console.log(result)
+            console.log("찾은 a태그 객체의 개수 : ",result.length)
+
+            // 클래스 이름으로 객체들 찾기
+            result = document.getElementsByClassName("seconds")
+            console.log(result)
+            // id속성값으로 객체 찾기
+            result = document.getElementById("b22")
+            // 해당 id 속성값의 객체가 없으면 null 반환
+            // 찾으면 객체 반환
+            console.log(result)
+            // 해당 id 속성값을 갖는 객체를 찾으면 종료
+            // 만약 id가 중복되면 제일 처음 발견된 객체를 반환
+        </script>
+        <form action="" method="get">
+            <input type="text" name="uname">
+            <input type="text" name="uage">
+            <input type="text" name="ulevel">
+        </form>
+        <script>
+            // name속성의 값으로 객체들 찾기
+            result = document.getElementsByName("uname")
+            // nodeListOf(HTMLElements) -> 원소가 여러개인 객체
+            console.log(result)
+            // 해당 name 속성값의 객체가 없어도 null을 반환하지 않음
+            result = document.getElementsByName("uid")
+            console.log(result)
+        </script>
+    </body>
+</html>
