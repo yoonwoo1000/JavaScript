@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>event listener</title>
+    <script src="eventHandler.js"></script>
+</head>
+
+<body>
+    <hr>
+    <button id="myBTN">event listener button</button>
+    <script>
+
+        let btn = document.getElementById("myBTN")
+
+        btn.addEventListener('click', function () {
+            this.innerText = "Click"
+            this.style.backgroundColor = "blue"
+        })
+        btn.addEventListener('mouseenter', function () {
+            this.style.border = '2px solid blue';
+        })
+        btn.addEventListener('mouseleave', function () {
+            this.style.border = '1px solid black';
+        })
+
+        /*
+        <button onclick="this.innerText='click';this.style.backgroundColor='greenyellow'"
+        onmouseenter="this.style.border='2px solid blue';" onmouseleave="this.style.border='1px solid black';">
+        </button>*/
+    </script>
+</body>
+
+</html>

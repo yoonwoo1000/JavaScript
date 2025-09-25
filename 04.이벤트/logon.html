@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .subBox {
+            display: none;
+        }
+    </style>
+    <script>
+        function checkId(object) {
+            if (object.value.length < 8) {
+                console.log('more than 8words(Characters)')
+                id_feedBack.innerText = "more than 8words(Characters)"
+                id_feedBack.style.color = "red"
+                object.value = ""
+                object.focus()
+            } else {
+                id_feedBack.innerText = "Available ID"
+                id_feedBack.style.color = "green"
+            }
+        }
+
+        function checkLength(object) {
+            if (object.length < 8) {
+                id_feedBack.innerText = "more than 8words(Characters)"
+                id_feedBack.style.color = "red"
+            } else {
+                id_feedBack.innerText = "Available ID"
+                id_feedBack.style.color = "green"
+            }
+        }
+
+        function checkPW() {
+            let pwStr = document.getElementsByName('uPW')[0].value
+            let pwcStr = document.getElementsByName('uPC')[0].value
+
+            if (pwStr != pwcStr) {
+                pw_feedBack.innerText = "Not Match"
+                pw_feedBack.style.color = "red"
+            } else {
+                pw_feedBack.innerText = "Match"
+                pw_feedBack.style.color = "green"
+            }
+        }
+
+        function showSubItems(fav_value) {
+            let subItems = document.getElementsByClassName("subBox")
+            for (let item of subItems) {
+                item.style.display = "none"
+            }
+            switch (fav_value) {
+                case "":
+                    break
+                case "01":
+                    sub01.style.display = "inline"
+                    break
+                case "02":
+                    sub02.style.display = "inline"
+                    break
+                case "03":
+                    sub03.style.display = "inline"
+                    break
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <form action="/" method="get" onsubmit="alert('submit event'); return fa">
+        <p>
+            ID :
+            <input type="text" name="uID" onblur="checkId(this)" oninput="checkLength(this.value)"
+                placeholder="more than 8words">
+            <br>
+            <span id="id_feedBack"></span>
+        </p>
+        <p>
+            Password : <br>
+            <input type="password" name="uPW">
+            <br>
+            <input type="password" name="uPC" oninput="checkPW()">
+            <br>
+            <span id="pw_feedBack"></span>
+        </p>
+        <p>
+            Interest :
+            <select name="fav" onchange="showSubItems(this.value)">
+                <option value="">Select</option>
+                <option value="01">Work out</option>
+                <option value="02">Music</option>
+                <option value="03">Travel</option>
+            </select><br>
+            <span id="fav_feedBack"></span>
+            <span class="subBox" id="sub01">
+                <label><input type="checkbox">Baseball</label>
+                <label><input type="checkbox">Soccer</label>
+                <label><input type="checkbox">Basketball</label>
+                <label><input type="checkbox">Golf</label>
+            </span>
+            <span class="subBox" id="sub02">
+                <label><input type="checkbox">Clasic</label>
+                <label><input type="checkbox">Pop</label>
+                <label><input type="checkbox">K-Pop</label>
+                <label><input type="checkbox">Rap</label>
+            </span>
+            <span class="subBox" id="sub03">
+                <label><input type="checkbox">Camping</label>
+                <label><input type="checkbox">Carping</label>
+                <label><input type="checkbox">Tour</label>
+            </span>
+            </span>
+
+
+        </p>
+        <hr>
+        <button type="submit">Join</button>
+        <input type="submit" value="Join">
+        <button>Join</button>
+    </form>
+
+</body>
+
+</html>
