@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>이벤트 리스너</title>
+        <script src="./07.js"></script>
+    </head>
+    <body>
+        <!-- 이벤트 헨들러 -->
+        <!-- 객체에 이벤트가 발생했을때에 이벤트를 처리하는 것 -->
+        <button
+            onclick="this.innerText='클릭';this.style.backgroundColor='yellow';"
+            onmouseenter="this.style.border='2px solid blue';"
+            onmouseleave="this.style.border='1px solid black';" >
+            여러 이벤트가 있는 버튼
+        </button>
+        <!-- 가독성 : HTML 구조와 JS 기능을 구분하기 어려움 -->
+        <!-- 유지보수 : 위의 버튼 같은 내용으로 10개가 있을때, 수정사항 발생??? -->
+        <!-- 확장성 : onclick에 연결된 동작을 더 추가하고 싶다??  -->
+        
+        <!-- 관심사 분리 원칙 -->
+        <!-- HTML : 구조 / CSS : 모양 / JS : 동작 -->
+
+        <!-- 이벤트 리스너 -->
+        <!-- addEventListener('이벤트종류',실행할 함수) -->
+        <!-- 이벤트 발생을 기다리며 대기하다가,
+             지정된 이벤트 발생시, 지정된 함수를 실행하는 객체 -->
+        <hr>
+        <button id="myBTN">이벤트리스너를 연결한 버튼</button>
+    </body>
+</html>

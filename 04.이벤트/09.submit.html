@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>서브밋 이벤트 다루기</title>
+        <script src="./09.js"></script>
         <style>
             /* 에러 메세지 스타일 지정 */
             .error_msg {
@@ -26,11 +27,11 @@
         </style>
     </head>
     <body style="background-color: lightgray;">
-        <form action="/" method="get" onsubmit="return false;">
-            <h3>회원가입</h3>
-            <hr>
-            <table>
-                <tr>
+        <form action="/" method="get" name="joinForm">
+        <h3>회원가입</h3>
+        <hr>
+        <table>
+            <tr>
                     <td>
                         <label for="uID">아이디</label>
                     </td>
@@ -74,7 +75,7 @@
                         <label for="uEmail">이메일</label>
                     </td>
                     <td>
-                        <input type="email" id="uEmail" placeholder="example@domain.com">
+                        <input type="text" id="uEmail" placeholder="example@domain.com">
                     </td>
                 </tr>
                 <tr>

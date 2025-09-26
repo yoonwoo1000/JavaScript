@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>preventDefault</title>
+    </head>
+    <body>
+        <form action="/" method="get" name="testForm">
+            <input type="submit" value="submit!!!!">
+        </form>
+        <script>
+            let obj = document.getElementsByName("testForm")
+            console.log(obj)
+            obj = document.testForm
+            console.log(obj)
+            obj = document.forms['testForm']
+            console.log(obj)
+
+            obj.addEventListener('submit', function(event){
+                console.log("submit 이벤트가 발생했습니다")
+                // 이벤트 리스너에 의해 호출되는 함수의 반환값은 submit 중단을 하지 못합니다
+                // return false;
+                // 이벤트의 기본 동작을 제거해주세요
+                event.preventDefault()
+                console.log("submit의 기본 동작을 제거했습니다")
+                if( confirm("submit를 진행하시겠습니까?") ){
+                    // 명시적으로 submit를 진행시킴
+                    document.testForm.submit()
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <style>
+        div {
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1" style="color: greenyellow;"></div>
+    <div id="box2" style="color: beige;"></div>
+    <div id="box3" style="color: blue;"></div>
+
+    <script>
+        console.log($("#box1").css("background-color"))
+        console.log($("#box2").css("background-color"))
+        console.log($("#box3").css("background-color"))
+
+        $("#box3").css("background-color", "pink")
+    </script>
+</body>
+
+</html>

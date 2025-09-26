@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <ul class="stack list" id="sl01">
+        <li class="stackitem" id="si01"><span style="color: red;">Java</span></li>
+        <li class="stackitem" id="si02">Python</li>
+        <li class="stackitem" id="si03">Tensorflow</li>
+        <li class="stackitem" id="si04">PyTorch</li>
+        <li class="stackitem" id="si05">C++</li>
+        <li class="stackitem" id="si06">HTML</li>
+    </ul>
+    <input type="text" name="uName" placeholder="Name : ">
+
+    <script>
+        console.log($("input"))
+        console.log($("li"))
+        console.log($("ul"))
+
+        console.log($("#sl01"))
+        let obj = document.getElementById("si01")
+        console.log(obj.innerHTML)
+        console.log(obj.innerText)
+
+        obj = $("#si01")
+        console.log(obj.text())
+        console.log(obj.html())
+    </script>
+
+</body>
+
+</html>
