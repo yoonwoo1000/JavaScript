@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>부모 객체, 자식 객체</title>
+        <script src="./js/jquery-3.7.1.js"></script>
+    </head>
+    <body>
+        <ul class="stackList">
+            <li class="stackItem">C++</li>
+            <li class="stackItem">파이썬</li>
+            <li class="stackItem">자바</li>
+            <li class="stackItem">HTML5</li>
+            <li class="stackItem">CSS3</li>
+            <li class="stackItem">JS</li>
+            <li onclick="showMSG(this)" class="stackItem">jQuery</li>
+        </ul>
+        <script>
+            function showMSG(obj){
+                let parent = obj.parentElement
+                console.log(parent)
+                parent = null
+                // jQuery에서 부모 객체를 찾는 함수 
+                parent = $('.stackItem').parent()
+                console.log(parent)
+                parent = null
+                // htmlElement를 $()에 넣으면 요소를 jQuery 객체로 변환
+                parent = $(obj).parent()
+                console.log(parent)
+            }
+            // 부모객체.children() -> 자식 객체들의 집합
+            let parent = $(".stackList")
+            console.log(parent.children())
+            // 원소가 여러개인 jQuery 객체에서 인덱스 i인 원소를 가져오기
+            // jQuery객체.eq(i)
+            let liList = $('li')
+            console.log(liList)
+            console.log(liList.eq(0))
+            console.log(liList.eq(3))
+            // 첫번째 자식
+            console.log(parent.children().first())
+            // 막내 찾기
+            console.log(parent.children().last())
+
+            // 형제 찾기
+            let target = liList.eq(3)
+            console.log(target.siblings())
+            console.log(target.siblings().first())
+            console.log(target.siblings().last())
+            console.log(target.siblings().eq(4))
+            // 바로 앞 형제
+            console.log(target.prev())
+            // 바로 뒤 형제
+            console.log(target.next())
+            // 앞 형제 전부
+            console.log(target.prevAll())
+            // 뒤 형제 전부
+            console.log(target.nextAll())
+        </script>
+    </body>
+</html>

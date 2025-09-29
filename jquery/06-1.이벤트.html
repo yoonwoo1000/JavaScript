@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery 이벤트</title>
+        <script src="./js/jquery-3.7.1.js"></script>
+    </head>
+    <body>
+        <button type="button">버튼입니다</button>
+        <button type="button">버튼입니다</button>
+        <button type="button">버튼입니다</button>
+        <button type="button">버튼입니다</button>
+        <button type="button">버튼입니다</button>
+        <script>
+            let btn_jq = $('button')
+            // 이벤트 연결도 여러 원소에 일괄 적용 됩니다
+        /*    btn_jq.on('click',function(){
+                //alert('이 함수는 jquery로 연결되었습니다')
+                console.log($(this))
+            })
+            btn_jq.on('mouseenter',function(){
+                $(this).css('background-color','yellow')
+            })
+            btn_jq.on('mouseleave',function(){
+                $(this).css('background-color','green')
+            })  */
+
+            // 메소드 체이닝 : jq객체에 함수를 연속적으로 적용
+            //btn_jq.on(...).on(...).on(...)
+            btn_jq.on('click',function(){
+                // this 키워드로 이벤트가 일어난 객체를 받아와서
+                // $(this)로 jq객체로 변환합니다
+                console.log($(this))
+            }).on('mouseenter',function(){
+                $(this).css('background-color','yellow')
+            }).on('mouseleave',function(){
+                $(this).css('background-color','green')
+            })
+        </script>
+    </body>
+</html>

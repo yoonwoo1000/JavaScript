@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>show hide toggle</title>
+        <style>
+            table {
+                width: 500px;
+                border: 1px solid black;
+            }
+            td {
+                border: 1px solid black;
+            }
+            .subMenu {
+                background-color: yellow;
+                position: absolute;
+            }
+        </style>
+        <script src="./js/jquery-3.7.1.js"></script>
+        <script>
+            function hideAll(){
+                // 서브 메뉴 테이블 객체를 모두 찾음
+                let subMenus = $(".subMenu")
+                // 각각의 테이블 속성을 변경
+                subMenus.css('display',"none")
+            }
+            function showMenu(event){
+                hideAll()
+                let target = ""
+                switch($(this).attr("id")){
+                    case "m1" : target = "#s1"; break;
+                    case "m2" : target = "#s2"; break;
+                    case "m3" : target = "#s3"; break;
+                }
+                $(target).css('display',"table")
+            }
+            $(document).ready(function(){
+                // 서브 메뉴 테이블을 모두 감춤
+                hideAll()
+                // 메인 메뉴의 버튼들을 모두 찾음
+                let BTNS = $('.mBTN')
+                BTNS
+                    .on('click',showMenu)
+                    .on('mouseover',function(){
+                        $(this).css('background-color','yellow')
+                    })
+                    .on('mouseout',function(){
+                        $(this).css('background-color','')
+                    })
+                let subMenus = $(".subMenu")
+                subMenus.on('mouseleave',hideAll)
+            })
+        </script>
+    </head>
+    <body>
+        <table class="mainMenu">
+            <tr>
+                <td class="mBTN" id="m1">메뉴 1</td>
+                <td class="mBTN" id="m2">메뉴 2</td>
+                <td class="mBTN" id="m3">메뉴 3</td>
+            </tr>
+        </table>
+        <table class="subMenu" id="s1">
+            <tr>
+                <td>하위 메뉴 1-1</td>
+                <td>하위 메뉴 1-2</td>
+                <td>하위 메뉴 1-3</td>
+            </tr>
+        </table>
+        <table class="subMenu" id="s2">
+            <tr>
+            <tr>
+                <td>하위 메뉴 2-1</td>
+                <td>하위 메뉴 2-2</td>
+                <td>하위 메뉴 2-3</td>
+            </tr>
+        </table>
+        <table class="subMenu" id="s3">
+            <tr>
+            <tr>
+                <td>하위 메뉴 3-1</td>
+                <td>하위 메뉴 3-2</td>
+                <td>하위 메뉴 3-3</td>
+            </tr>
+        </table>
+        <table class="contents">
+            <tr>
+                <td>글번호</td>
+                <td>제목</td>
+                <td>작성자</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>자바 학습자료 공지</td>
+                <td>홍길동</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>파이썬 학습자료 공지</td>
+                <td>홍길동</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>jquery 학습자료 공지</td>
+                <td>홍길동</td>
+            </tr>
+        </table>
+    </body>
+</html>

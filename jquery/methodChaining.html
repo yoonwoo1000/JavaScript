@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#msg_box').html("page loading finished! <br> try to change the setting")
+
+            $('#uName').on('focus', function () {
+                $(this).css('background-color', 'greenyellow')
+            }).on('blur', function () {
+                $(this).css('background-color', 'white')
+            }).on('input', function () {
+                let count = $(this).val().length + 'words'
+                $('#char_count').text(count)
+            })
+
+            $('#apply_color').on('click', function () {
+                console.log($('#uName').val())
+                console.log($('#color_select').val())
+                $('#msg_box').html("welcome " + $('#uName').val())
+
+                $('body').css('background-color', $('#color_select').val())
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <h2 id="msg_box">Wellcome</h2>
+        <h4>Setting</h4>
+
+        <p>
+            name :
+            <input type="text" name="" id="uName" placeholder="Name...">
+            <span id="char_count"></span>
+        </p>
+        <p>
+            Favorite Color :
+            <select name="color_select" id="color_select">
+                <option value="white">Default</option>
+                <option value="#adff2f">Green Yellow</option>
+                <option value="#441dd3">Purple</option>
+                <option value="#8d0cad">Pinple</option>
+            </select>
+        </p>
+        <button id="apply_color">Setting confrim</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>입력 폼 연습</title>
+		<script src="./js/jquery-3.7.1.js"></script>
+	</head>
+	<body>
+		<form method="get" action="">
+			<table border="1" width="500px" align="center">
+				<tr class="id_input">
+					<td width="150px">아이디 </td>
+					<td><input type="text" name="id" placeholder="영문자만 입력하세요"></td>
+				</tr>
+				<tr class="name_input">
+					<td>이름 </td>
+					<td><input type="text" name="myname" value="홍길동"></td>
+				</tr>
+				<tr class="pw_input">
+					<td>비밀번호 </td>
+					<td><input type="password" name="pw"></td>
+				</tr>
+				<tr class="fav_input">			
+					<td>취미</td>
+					<td>
+						<input type="checkbox" name="hb" value="1">낚시
+						<input type="checkbox" name="hb" value="2" checked>요리
+						<input type="checkbox" name="hb" value="3" checked>게임
+					</td>
+				</tr>
+				<tr class="gender_input">
+					<td>성별
+					<td>
+					<input type="radio" name="g" value="M">남자
+					<input type="radio" name="g" value="F">여자
+					<input type="radio" name="g" value="N" checked>비공개
+					</td>
+				</tr>
+				<tr class="marriage_input">
+					<td>혼인여부</td>
+					<td>
+						<input type="radio" name="m" value="X" checked>미혼
+						<input type="radio" name="m" value="O">결혼
+						<input type="radio" name="m" value="R">재혼
+						<input type="radio" name="m" value="N">비공개
+					</td>
+				</tr>
+				<tr class="addr_input">		
+					<td>거주지역</td>
+					<td>
+					<select name="area">
+						<option value="01">전주</option>
+						<option value="02">군산</option>
+						<option value="03" selected>익산</option>
+					</select>
+
+					</td>
+				</tr>
+				<tr class="profile_input">
+					<td>
+					자기소개
+					</td>
+					<td>
+						<textarea name="intro" rows="10" cols="40" value="">안녕하세요.
+				
+				
+				
+	또 안녕하세요??</textarea>
+					</td>
+				</tr>
+				<tr class="attach_input">
+					<td>첨부파일</td>
+					<td><input type="file" name="attach"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="가입하기">
+						<input type="reset" value="되돌리기">
+					</td>
+				</tr>
+			</table>
+		</form>
+		<script>
+			// jQuery객체가 여러 원소를 갖고 있을때
+			// jq객체.find(선택자)
+			// 원소중에서 원하는 객체를 찾을수 있습니다
+			let obj = $('form')
+			console.log(obj)
+			// 영역을 좁혀가며 탐색하기
+			obj = $('table')
+			console.log(obj)
+			console.log(obj.find('.fav_input'))
+			console.log(obj.find('.fav_input').find('input'))
+		</script>
+	</body>
+</html>

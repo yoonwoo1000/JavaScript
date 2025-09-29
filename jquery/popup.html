@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>fade / slide</title>
+    <script src="js/jquery-3.7.1.js"></script>
+
+    <style>
+        #popup {
+            display: none;
+            width: 300px;
+            padding: 20px;
+            background-color: greenyellow;
+            border: 1px solid green;
+            border-radius: 10px;
+
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        table {
+            width: 500px;
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            alert('document loaded')
+            $('.btn_fade_in').on('click', function () {
+                $('#popup').fadeIn('slow')
+            })
+            $('.btn_fade_out').on('click', function () {
+                $('#popup').fadeOut('slow')
+            })
+            $('.btn_fade_toggle').on('click', function () {
+                $('#popup').fadeToggle('slow')
+            })
+            $('.btn_slide_up').on('click', function () {
+                $('#popup').slideUp('slow')
+            })
+            $('.btn_slide_down').on('click', function () {
+                $('#popup').slideDown('slow')
+            })
+            $('.btn_slide_toggle').on('click', function () {
+                $('#popup').slideToggle('fast')
+            })
+
+        })
+
+        function close_popup() {
+
+        }
+    </script>
+</head>
+
+<body>
+    <button class="btn_fade_in">Fade In</button>
+    <button class="btn_fade_out">Fade Out</button>
+    <button class="btn_fade_toggle">Fade toggle</button>
+
+    <button class="btn_slide_up">Silde up</button>
+    <button class="btn_slide_down">Slide down</button>
+    <button class="btn_slide_toggle">Slide toggle</button>
+
+    <div id="popup">
+        <h2>alert</h2>
+        <p>this is pop up page</p>
+        <button id="close_BTN">
+            Close
+        </button>
+    </div>
+
+
+
+
+    <table class="mainMenu">
+        <tr>
+            <td class="mBTN" id="m1">메뉴 1</td>
+            <td class="mBTN" id="m2">메뉴 2</td>
+            <td class="mBTN" id="m3">메뉴 3</td>
+        </tr>
+    </table>
+    <table class="subMenu" id="s1">
+        <tr>
+            <td>하위 메뉴 1-1</td>
+            <td>하위 메뉴 1-2</td>
+            <td>하위 메뉴 1-3</td>
+        </tr>
+    </table>
+    <table class="subMenu" id="s2">
+        <tr>
+        <tr>
+            <td>하위 메뉴 2-1</td>
+            <td>하위 메뉴 2-2</td>
+            <td>하위 메뉴 2-3</td>
+        </tr>
+    </table>
+    <table class="subMenu" id="s3">
+        <tr>
+        <tr>
+            <td>하위 메뉴 3-1</td>
+            <td>하위 메뉴 3-2</td>
+            <td>하위 메뉴 3-3</td>
+        </tr>
+    </table>
+    <table class="contents">
+        <tr>
+            <td>글번호</td>
+            <td>제목</td>
+            <td>작성자</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>자바 학습자료 공지</td>
+            <td>홍길동</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>파이썬 학습자료 공지</td>
+            <td>홍길동</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>jquery 학습자료 공지</td>
+            <td>홍길동</td>
+        </tr>
+    </table>
+</body>
+
+</html>
