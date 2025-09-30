@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 객체</title>
+    <script>
+        let obj = {
+            name: "Gnang",
+            age: 20,
+            addr: "Seoul"
+        }
+
+        const todoList = [
+            {
+                idx: 5,
+                content: 'ready for 10.4',
+                wDate: '2025-09-30',
+                isDone: false
+            }
+        ]
+
+        for (let item of todoList) {
+            console.log(item)
+            console.log('--------')
+            console.log("idx : ", item.idx)
+            console.log("content : ", item.content)
+            console.log("wDate : ", item.wDate)
+            console.log("isDone : ", item.isDone)
+        }
+
+        let content = prompt("to do : ")
+        if (content != null) {
+            let newTodo = {
+                idx: todoList.length + 1,
+                content: contnet,
+                wDate: '2025-09-30',
+                isDone: false
+            }
+            todoList.push(newTodo)
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

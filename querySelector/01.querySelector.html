@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>querySelector</title>
+        <script>
+            window.onload = function(){
+                //alert('문서가 로드되었습니다')
+                // JS 태그 이름으로 객체 찾기
+                let obj = document.getElementsByTagName('button')
+                console.log(obj)
+                // $('button')
+                obj = null
+                // document.querySelector(CSS선택자)
+                // 찾으면 HTML객체 반환 / 못찾으면 null 반환
+                obj = document.querySelector('button')
+                console.log(obj)
+                // 클래스 이름으로 객체 찾기
+                obj = null
+                obj = document.getElementsByClassName("msgBox")
+                console.log(obj)
+                obj = null
+                obj = document.querySelector('.msgBox')
+                console.log(obj)
+                // id로 객체 찾기
+                obj = null
+                obj = document.getElementById("myP")
+                console.log(obj)
+                obj = null
+                obj = document.querySelector("#myP")
+                console.log(obj)
+                // document.querySelector()는 처음 찾는 객체 하나만 반환
+                // HTML요소들을 원소로 갖는 nodeList를 반환
+                // 찾는 객체가 없으면 원소가 0개인 리스트 반환
+                let objList = document.querySelectorAll('li')
+                console.log(objList)
+                // 속성이름과 속성 값으로 객체 찾기
+                obj = null
+                objList = null
+                obj = document.querySelector('[name=uName]')
+                console.log(obj)
+                objList = document.querySelectorAll('[name=uName]')
+                console.log(objList)
+                // 계층 정보로 찾기 
+                obj = null
+                objList = null
+                obj = document.querySelector('ul > li > ol')
+                console.log(obj)
+                objList = document.querySelectorAll('ul > li > ol')
+                console.log(objList)
+                // nodeList에 일괄작업하기
+                objList = null
+                objList = document.querySelectorAll('ol > li')
+                console.log(objList)
+                objList.forEach(function(obj){
+                    console.log(obj)
+                    obj.addEventListener('mouseover',function(){
+                        this.style.backgroundColor = "yellow"
+                    })
+                    obj.addEventListener('mouseout',function(){
+                        this.style.backgroundColor = ""
+                    })
+                })
+                // 하위 객체 탐색 : jQuery jq객채.find()
+                let parent = document.querySelector('table')
+                let children = parent.querySelectorAll('span')
+                console.log(children)
+            }
+        </script>
+    </head>
+    <body>
+        <button>버튼</button><br>
+        이름 : <input type="text" name="uName"><br>
+        나이 : <input type="text" name="age"><br>
+        <span class="msgBox">span 영역입니다</span>
+        <p id="myP">문단영역입니다</p>
+        <img src="./cat.jpg" width="200px" alt="고양이 사진입니다"><br>
+        <ul>
+            <li>프로그래밍 언어
+                <ol>
+                    <li>자바</li>
+                    <li>자바스크립트</li>
+                    <li>파이썬</li>
+                    <li>C++</li>
+                </ol>
+            </li>
+            <li>마크업 언어
+                <ol>
+                    <li>HTML</li>
+                    <li>XML</li>
+                    <li>SVG</li>
+                    <li>MarkDown</li>
+                </ol>
+            </li>
+        </ul>
+        <table border="1" width="300px">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>이것이 자바다</td>
+                <td><span class="author">신용권</span></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>그것도 자바다</td>
+                <td><span class="author">홍길동</span></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>저것은 파이썬</td>
+                <td><span class="author">전우치</span></td>
+            </tr>
+        </table>
+    </body>
+</html>

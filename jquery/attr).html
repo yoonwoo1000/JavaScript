@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="./js/jquery-3.7.1"></script>
+    <script>
+        $(document).ready(function () {
+            console.log($('#myImg').attr('src'))
+
+            $('#myImg').attr('src', 'cat.jpg')
+            $('#myImg').on('mouseover', function () {
+                $('#myImg').attr('width', '210px')
+            }).on('mouseout', function () {
+                $('#myImg').attr('width', '190px')
+            }).on('click', function () {
+                if ($(this).attr('src') == 'cat.jpg') {
+                    $(this).attr('src', 'dog.jpg')
+                } else {
+                    $(this).attr('src', 'cat.jpg')
+                } 0
+            })
+
+            let imageList = ['cat.jpg', 'cats.jpg', 'bigcat.jpg', 'dog.jpg']
+            $('changeBTN').on('click', function () {
+                let number = Math.floor(Math.random() * imageList.length)
+                $('myimg').attr('src', imageList[number])
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button id="changeBTN"> Change image</button>
+    <img width="190px" id="myImg">
+</body>
+
+</html>

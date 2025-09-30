@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>라이트모드 다크모드 전환하기</title>
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+        }
+
+        /* 다크모드 설정 */
+        body.dark {
+            background-color: black;
+            color: white;
+        }
+
+        .dark table,
+        .dark td,
+        .dark th {
+            border-color: white;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let body = document.querySelector('body')
+            // 라이트 모드 버튼을 찾고, 이벤트 연결
+            let Lbtn = document.querySelector('.btn.light')
+            Lbtn.addEventListener('click', function () {
+                // JS에서 객체의 특정 클래스 제거
+                body.classList.remove('dark')
+            })
+            // 다크 모드 버튼을 찾고, 이벤트 연결
+            let Dbtn = document.querySelector('.btn.dark')
+            Dbtn.addEventListener('click', function () {
+                // JS에서 객체에 특정 클래스 추가
+                body.classList.add('dark')
+            })
+            // 토글 버튼을 찾고, 이벤트 연결
+            let Tbtn = document.querySelector('.btn.toggle')
+            Tbtn.addEventListener('click', function () {
+                if (body.classList.contains('dark')) {
+                    console.log("현재 다크모드입니다")
+                    console.log("라이트 모드로 변경합니다")
+                } else {
+                    console.log("현재 라이트모드입니다")
+                    console.log("다크 모드로 변경합니다")
+                }
+                body.classList.toggle('dark')
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div style="width: 100%; text-align:right">
+        <button class="btn light">라이트</button>
+        <button class="btn dark">다크</button>
+        <button class="btn toggle">토글</button>
+    </div>
+    <h3>제목입니다</h3>
+    <hr>
+    <p>본문 태그입니다</p>
+    <div>공간분할 태그입니다</div>
+    <span>span 태그 영역입니다</span>
+    <table>
+        <tr>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>자바 학습자료 공지</td>
+            <td>홍길동</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>파이썬 학습자료 공지</td>
+            <td>홍길동</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>jquery 학습자료 공지</td>
+            <td>홍길동</td>
+        </tr>
+    </table>
+    <br>
+    <p>이젠 it 아카데미 AI 서비스 개발자 양성과정</p>
+</body>
+
+</html>
